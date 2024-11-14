@@ -1,0 +1,171 @@
+/* Reset default margins and paddings */
+body, html {
+    margin: 0;
+    padding: 0;
+    /* Removed overflow: hidden; to allow dropdown visibility */
+    width: 100%;
+    height: 100%;
+    background-image: url('gwif_page.png'); /* Ensure correct image path */
+    background-size: cover; /* Ensure the background covers the entire screen */
+    background-position: center; /* Center the background image */
+    font-family: Arial, sans-serif; /* Optional: Set a default font */
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Shadow underneath */
+    z-index: 1000; /* Ensure the header stays above other elements */
+    height: 40px; /* Increased height for better spacing */
+    
+    /* Flexbox properties */
+    display: flex;
+    align-items: center; /* Vertically center the navigation */
+    justify-content: center; /* Horizontally center the navigation */
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Center the navigation items horizontally */
+    align-items: center; /* Center the navigation items vertically */
+    margin: 0;
+    padding: 0; /* Remove vertical padding to avoid affecting centering */
+}
+
+nav ul li {
+    position: relative; /* Necessary for dropdown positioning */
+    margin: 0 15px; /* Horizontal spacing between links */
+    padding: 0; /* Remove any default padding */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff; /* Link text color */
+    font-size: 14px; /* Increased font size for better readability */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+    display: flex;
+    align-items: center; /* Vertically center the content within the link */
+    padding: 0 10px; /* Horizontal padding for spacing between links */
+    height: 100%; /* Ensure the link takes the full height of the header */
+    box-sizing: border-box; /* Include padding within the element's total height and width */
+}
+
+nav ul li a:hover {
+    color: #ffcc00; /* Change color on hover */
+}
+
+/* Dropdown Button */
+.dropbtn {
+    cursor: pointer;
+}
+
+/* Dropdown Content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
+    /* min-width: 160px; */
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    top: 100%; /* Position directly below the parent li */
+    left: 0; /* Align to the left of the parent li */
+    z-index: 1001; /* Ensure it's above the header */
+    border-radius: 4px;
+}
+
+/* Dropdown Links */
+.dropdown-content a {
+    color: #ffffff;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: flex;                 /* Enable Flexbox */
+    align-items: center;           /* Vertically center content */
+    justify-content: center;       /* Horizontally center content */
+    font-size: 14px;
+    width: 100%;                   /* Make links take full width of dropdown */
+    box-sizing: border-box;        /* Include padding within the width */
+}
+
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 204, 0, 0.2);
+    color: #ffcc00;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Add caret rotation when dropdown is active */
+.dropdown:hover .fa-caret-down {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+/* Icon Styles */
+.dropdown-content a i {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 16px;
+}
+
+/* Adjust the left margin of the caret icon in the dropbtn */
+.dropdown .dropbtn i.fa-caret-down {
+    margin-left: 4px; /* Adjust the value as needed */
+}
+
+
+/* Container for Bouncing Images */
+#container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 60px; /* Space for the fixed header (match the header height) */
+    box-sizing: border-box;
+}
+
+/* Bouncing Images Styles */
+.bouncingImage {
+    position: absolute;
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    /* Optional: Add any additional styles like border, shadow, etc. */
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        padding: 5px 0;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Slightly larger for better touch targets */
+    }
+
+    header {
+        height: 80px; /* Adjust height to accommodate larger touch areas */
+    }
+
+    .dropdown-content {
+        top: 80px; /* Position dropdown below the updated header */
+    }
+
+    #container {
+        padding-top: 80px; /* Match the updated header height */
+    }
+
+    /* Dropdown Positioning for Mobile */
+    .dropdown-content {
+        right: auto;
+        left: 0;
+    }
+}
